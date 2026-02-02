@@ -127,159 +127,200 @@ header {
   color: #333;
 }
 
-/* SECTION PRODUITS */
-.produits {
-  padding: 50px;
-  background: #fff;
-  text-align: center;
-}
 
-.produits h2 {
-  margin-bottom: 30px;
-  font-size: 28px;
+/* --- MON CATALOGUE CH SHOES --- */
+   /* --- MON CATALOGUE CH SHOES --- */
+.produits {
+  padding: 40px 5%;
+  background: #fff;
 }
 
 .produits-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  gap: 30px 20px;
 }
 
 .produit {
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 
+/* 1. Le cadre de base (pour tes sandales) */
 .product-image {
-  position: relative;
   width: 100%;
+  height: 250px; 
+  overflow: hidden;
+  margin-bottom: 10px;
+  background: #f9f9f9;
+  position: relative; /* Indispensable pour que l'oeil et le coeur s'affichent dessus */
 }
 
 .product-image img {
   width: 100%;
-  border-radius: 10px;
-  height: 250px;
+  height: 100%;
   object-fit: contain;
 }
 
-.product-icons {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  opacity: 0;
-  transition: opacity 0.15s ease;
+/* 2. Le cadre spécial pour tes talons (Horizontal) */
+.produit.horizontal .product-image {
+  aspect-ratio: 16 / 9 !important; 
+  height: auto !important; /* On annule les 250px pour que ça devienne horizontal */
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
 }
 
-.product-icons a {
-  color: #fff;
-  background: rgba(0, 0, 0, 0.45);
-  padding: 6px 8px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 16px;
+/* 3. Sécurité pour tes icônes (Oeil et Coeur) */
+   .product-icons {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  background: rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: 0.3s;
 }
 
 .product-image:hover .product-icons {
   opacity: 1;
 }
 
+ 
+
 .produit h3 {
-  margin: 10px 0 5px;
-  font-size: 16px;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 5px;
 }
 
 .produit p {
+  font-size: 15px;
+  color: #666;
   font-weight: bold;
-  color: #333;
 }
 
-/* BLOC A : MANNEQUINS */
-.mannequins {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  height: 90vh;
+/* BLOC B : COLLECTIONS */
+
+.nouveautes {
+  display: flex;
+  height: 700px;
+  position: relative;
+  gap: 0;
 }
 
-.mannequin img {
+.nouveautes .colonne {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.nouveautes img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* BLOC B : COLLECTIONS */
-.collections {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.label {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: 1px solid black;
 }
 
+.collections {
+  position: relative;
+  padding-top: 60px;
+}
+
+.collections-title {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: 1px solid black;
+  z-index: 10;
+}
+
+.collections-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, 300px); /* format paysage */
+  gap: 1px; /* fine ligne blanche */
+  background: white;
+}
+
+/* chaque image */
 .collection-card {
   position: relative;
-  height: 45vh;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
 }
 
 .collection-card img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: 0.5s;
 }
 
-.collection-text {
+/* effet couleur au hover */
+.collection-card:hover img {
+  filter: grayscale(0%);
+}
+
+/* texte centré */
+.collection-content {
   position: absolute;
   inset: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   color: white;
-  background: rgba(0, 0, 0, 0.35);
   text-align: center;
+  background: rgba(0,0,0,0.25);
 }
 
-.collection-text span {
-  font-size: 12px;
+.collection-content h3 {
+  font-size: 24px;
   letter-spacing: 2px;
-  margin-bottom: 5px;
-}
-
-.collection-text h3 {
-  font-size: 22px;
-  letter-spacing: 2px;
-}
-
-/* BLOC C : HISTOIRE */
-.history {
-  background: url("../image/histoire.jpg") center/cover no-repeat;
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.history-card {
-  background: white;
-  padding: 40px;
-  max-width: 500px;
-  text-align: center;
-}
-
-.history-card h3 {
-  margin-bottom: 20px;
-  letter-spacing: 2px;
-}
-
-.history-card p {
-  font-size: 14px;
-  line-height: 1.6;
   margin-bottom: 10px;
+  font-family: Arial, sans-serif;
 }
 
-/* FOOTER */
-footer {
-  background: #f0f0f0;
-  padding: 30px;
-  text-align: center;
-  color: #666;
+.collection-content button {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 8px 20px;
+  cursor: pointer;
+}
+
+.collection-content button:hover {
+  background: white;
+  color: black;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .collections-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 250px);
+  }
 }
